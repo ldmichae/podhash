@@ -1,5 +1,5 @@
-import { PodcastEpisodeType } from '../page'
 import { getRandomSafeColor } from '../styles/twEnums'
+import { PodcastEpisodeType } from '../types/podcastTypes'
 import { PlayPauseButton } from './playButton'
 import { DescriptionToggle } from './toggleDescription'
 
@@ -16,7 +16,6 @@ export default function PodcastEpisode({podcastData}: PodcastEpisodeProps) {
 
   const randomSafeColor1 = getRandomSafeColor()
   const randomSafeColor2 = getRandomSafeColor()
-  console.info(`from-${randomSafeColor1}-950 to-${randomSafeColor2}-900`)
 
   return (
     <div className="card bg-base-100 shadow-xl max-w-2xl mx-auto">
@@ -46,6 +45,29 @@ export default function PodcastEpisode({podcastData}: PodcastEpisodeProps) {
           >
             View Episode Details
           </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+export function SkeletonPodcastEpisode() {
+  return (
+    <div className="card bg-base-100 shadow-xl max-w-2xl mx-auto animate-pulse">
+      <figure className="bg-gradient-to-r from-gray-300 to-gray-400 h-48"></figure>
+      <div className="card-body">
+        <div className="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+        <div className="h-4 bg-gray-300 rounded w-1/2 mb-4"></div>
+        <div className="flex items-center justify-between mt-4">
+          <div className="h-10 w-10 bg-gray-300 rounded-full"></div>
+          <div className="h-4 bg-gray-300 rounded w-1/4"></div>
+        </div>
+        <div className="h-4 bg-gray-300 rounded w-full mt-4"></div>
+        <div className="h-4 bg-gray-300 rounded w-full mt-2"></div>
+        <div className="h-4 bg-gray-300 rounded w-3/4 mt-2"></div>
+        <div className="card-actions justify-end mt-4">
+          <div className="h-4 bg-gray-300 rounded w-1/4"></div>
         </div>
       </div>
     </div>
